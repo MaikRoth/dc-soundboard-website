@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Soundboard Upload</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container mt-4">
+      <h1 class="mb-4">Upload a Sound</h1>
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          <div class="alert alert-warning" role="alert">
+            {{ messages[0] }}
+          </div>
+        {% endif %}
+      {% endwith %}
+      <form method="POST" action="{{ url_for('upload_file') }}" enctype="multipart/form-data">
+        <div class="form-group">
+          <label for="name">Sound Name</label>
+          <input type="text" class="form-control" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="file">Choose MP3 file</label>
+          <input type="file" class="form-control-file" id="file" name="file" accept=".mp3" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Upload</button>
+      </form>
+      <hr>
+      <h2>Available Sounds</h2>
+      <ul class="list-group">
+        {% for sound in sounds %}
+          <li class="list-group-item">{{ sound }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>
