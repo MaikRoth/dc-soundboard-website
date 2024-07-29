@@ -1,6 +1,6 @@
-Flask==2.0.2
-Flask-CORS==3.0.10
-Werkzeug==2.0.2
-hikari==2.0.0.dev123
-hikari-lightbulb==2.3.4
-python-dotenv==0.19.2
+discord.py
+python-dotenv
+werkzeug
+moviepy
+ffmpeg-python
+PyNaCl
